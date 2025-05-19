@@ -54,11 +54,11 @@ jobs:
         # Runs Snyk Code (SAST) analysis and uploads result into GitHub.
         # Use || true to not fail the pipeline
       - name: Snyk Code test
-        run: snyk code test -d --sarif > snyk-code.sarif # || true
+        run: snyk code test -d --sarif > snyk-code.sarif --org=3167cc5c-f74c-4bd8-87c6-d9f983ec5d31 # || true
 
         # Runs Snyk Open Source (SCA) analysis and uploads result to Snyk.
       - name: Snyk Open Source monitor
-        run: snyk monitor -d --all-projects
+        run: snyk monitor -d --all-projects snyk test --all-projects --org=3167cc5c-f74c-4bd8-87c6-d9f983ec5d31
 
         # Runs Snyk Infrastructure as Code (IaC) analysis and uploads result to Snyk.
         # Use || true to not fail the pipeline.
